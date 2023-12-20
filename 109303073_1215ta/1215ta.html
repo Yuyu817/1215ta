@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<script>
+    function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    if (b === 0) {
+        return "Cannot divide by zero!";
+    }
+    return a / b;
+}
+
+function calculator() {
+    let calculate = true;
+
+    while (calculate) {
+        let num1;
+
+        while (isNaN(num1)) {
+            num1 = parseFloat(prompt("Enter the first number:"));
+
+            if (isNaN(num1)) {
+                alert("Please enter a valid first number!");
+            }
+        }
+
+        let num2;
+
+        while (isNaN(num2)) {
+            num2 = parseFloat(prompt("Enter the second number:"));
+
+            if (isNaN(num2)) {
+                alert("Please enter a valid second number!");
+            }
+        }
+
+        let operation;
+
+        while (!["+", "-", "*", "/"].includes(operation)) {
+            operation = prompt("Choose an operation (+, -, *, /):");
+
+            if (!["+", "-", "*", "/"].includes(operation)) {
+                alert("Invalid operation! Please choose a valid operation.");
+            }
+        }
+
+        let result;
+
+        switch (operation) {
+            case '+':
+                result = add(num1, num2);
+                document.write(`${num1} + ${num2} = ${result}<br>`);
+                break;
+            case '-':
+                result = subtract(num1, num2);
+                document.write(`${num1} - ${num2} = ${result}<br>`);
+                break;
+            case '*':
+                result = multiply(num1, num2);
+                document.write(`${num1} * ${num2} = ${result}<br>`);
+                break;
+            case '/':
+                result = divide(num1, num2);
+                document.write(`${num1} / ${num2} = ${result}<br>`);
+                break;
+            default:
+                document.write("Invalid operation!<br>");
+        }
+
+        let choice = prompt("Do you want to perform another calculation? (yes/no)");
+        if (choice.toLowerCase() !== 'yes') {
+            calculate = false;
+        }
+    }
+}
+
+calculator();
+
+
+   
+ 
+  
+
+
+</script>
+</body>

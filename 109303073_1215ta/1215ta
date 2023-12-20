@@ -1,0 +1,58 @@
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    if (b === 0) {
+        return "Cannot divide by zero!";
+    }
+    return a / b;
+}
+
+function calculator() {
+    let calculate = true;
+
+    while (calculate) {
+        let num1 = parseFloat(prompt("Enter first number:"));
+        let num2 = parseFloat(prompt("Enter second number:"));
+
+        if (isNaN(num1) || isNaN(num2)) {
+            console.log("Please enter valid numbers!");
+            continue;
+        }
+
+        let operation = prompt("Choose an operation (+, -, *, /):");
+
+        switch (operation) {
+            case '+':
+                console.log("Result:", add(num1, num2));
+                break;
+            case '-':
+                console.log("Result:", subtract(num1, num2));
+                break;
+            case '*':
+                console.log("Result:", multiply(num1, num2));
+                break;
+            case '/':
+                console.log("Result:", divide(num1, num2));
+                break;
+            default:
+                console.log("Invalid operation!");
+        }
+
+        let choice = prompt("Do you want to perform another calculation? (yes/no)");
+        if (choice.toLowerCase() !== 'yes') {
+            calculate = false;
+        }
+    }
+}
+
+calculator();
